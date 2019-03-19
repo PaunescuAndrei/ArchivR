@@ -30,7 +30,8 @@ body {
 
 @media screen and (min-width: 769px) {
     .column{
-        display: block;
+        display: flex;
+        flex-direction: column;
         padding-left: 37%;
         padding-right: 37%;
         padding-top: 10%;
