@@ -63,7 +63,7 @@ img {
 }
 
 
-#main > article {
+#main article {
     display: block;
     flex-basis: 0;
     flex-grow: 1;
@@ -84,7 +84,7 @@ img {
     }
 }
 
-#main > nav {
+#main nav {
     font-size: 1.1rem;
 }
 
@@ -160,12 +160,7 @@ li a:hover:not(.active) {
     text-align: center;
     white-space: nowrap;
     vertical-align: middle;
-    -ms-touch-action: manipulation;
-    touch-action: manipulation;
     cursor: pointer;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
     user-select: none;
     background-image: none;
     border: 1px solid transparent;
@@ -217,7 +212,7 @@ li a:hover:not(.active) {
 
 .bin {
     float: left;
-    background: url(x.png);
+    background: url(../images/x.png);
     width: 16px;
     height: 16px;
     cursor: pointer;
