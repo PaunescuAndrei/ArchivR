@@ -3,7 +3,7 @@
 class Auth extends Controller{
     public function index(){
         if(isset($_SESSION["logged_in"]) && $_SESSION["logged_in"] === true){
-            header('location: /archivr-mvc/public/MyArchives/index');
+            header('location: /ArchivR/public/MyArchives/index');
             die();
         }
         $info = "";
@@ -28,7 +28,7 @@ class Auth extends Controller{
                         $_SESSION['user_path'] = $user_data['user_path'];
                         $_SESSION['admin'] = $user_data['admin'];
                         $_SESSION['logged_in'] = TRUE;
-                        header('location: /archivr-mvc/public/MyArchives/index');
+                        header('location: /ArchivR/public/MyArchives/index');
                         die();
                     }
                 }

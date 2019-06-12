@@ -10,7 +10,7 @@ if(isset($data['info'])){
 <html lang="en">
     <head>
         <title>Login</title>
-        <base href="/archivr-mvc/public/" />
+        <base href="/ArchivR/public/" />
         <link rel="stylesheet" type="text/css" href="css/index.css">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta charset="UTF-8">
@@ -33,10 +33,10 @@ if(isset($data['info'])){
                     </div>
                     <div class="buttons-right">
                         <div class="button-control">
-                            <button type="submit" name=register_button class="button">Register</button>
+                            <button type="submit" name=login_button class="button">Log in</button>
                         </div>
                         <div class="button-control">
-                            <button type="submit" name=login_button class="button">Log in</button>
+                            <button type="submit" name=register_button class="button">Register</button>
                         </div>
                     </div>
                 </form>

@@ -212,7 +212,7 @@ li a:hover:not(.active) {
 
 .bin {
     float: left;
-    background: url(../images/x.png);
+    background: url(../img/x.png);
     width: 16px;
     height: 16px;
     cursor: pointer;

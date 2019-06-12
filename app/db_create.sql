@@ -11,6 +11,7 @@ CREATE TABLE log (
     user_id INT,
     username VARCHAR(50),
     archive_name VARCHAR(255) NOT NULL,
+    action_type VARCHAR(10) NOT NULL,
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
     INDEX log_ind (user_id),
     FOREIGN KEY (user_id)
