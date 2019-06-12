@@ -1,8 +1,25 @@
+<?php
+
+$user_files = [];
+$user_path = "";
+if(isset($_SESSION['user_path'])){
+    $user_path = $_SESSION['user_path'];
+    if (is_dir($user_path)) {
+        if ($dir = opendir($user_path)) {
+            $files = array_diff(scandir($user_path), array('.', '..'));
+            closedir($dir);
+        }
+    }
+}
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
         <title>My archives</title>
-        <base href="/archivr-mvc/public/" />
+        <base href="/ArchivR/public/" />
         <link rel='stylesheet' type='text/css' href='css/style.css'/>
 
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -33,23 +50,27 @@
                     </ul>
                 </nav>
                 <article>
+                <form action="" method="POST">
                         <div id="step2" class="fieldset" style="margin-top:30px;">
                             <h3>Your files</h3>
                             <div id="zipList">
-                                <div class="bin" onclick=""></div>
-                                <div class="progress" style="margin-left:24px">
-                                    <div><input type="checkbox">file1.tar<span class="fileSize">49.8KB</span></div>
+                            <?php
+                            foreach($files as $file){
+                                $size = filesize($user_path."/".$file)/1024;
+                                $size = number_format((float)$size, 2, '.', '');
+                                echo "<div class=\"bin\" onclick=\"\"></div>";
+                                echo "<div class=\"progress\" style=\"margin-left:24px\">";
+                                echo "<div><input type=\"checkbox\" value=".$file." name=\"checkbox[]\" />".$file."<span class=\"fileSize\"> ".$size." KB</span></div>";
+                                echo "</div>";
+                            }
+                            ?>
                             </div>
-                            <div class="bin" onclick=""></div>
-                                <div class="progress" style="margin-left:24px">
-                                    <div><input type="checkbox">file2.zip<span class="fileSize">105.4KB</span></div>
-                                </div>
+                            <div style="text-align: right">
+                                <input type="submit" class="btn btn-blue" value="Download" name="download_button">			
+                                <input type="submit" class="btn btn-red" value="Delete" name="delete_button">
                             </div>
-                                <div style="text-align: right">
-                                    <button type="button" class="btn btn-blue" onclick="" disabled>Download</button>			
-                                    <button type="button" class="btn btn-red" onclick="">Delete</button>
-                                </div>
                         </div>
+                    </form>
                 </article>
             </div>
         </section>
