@@ -1,32 +1,7 @@
 <?php
-require_once "config.php";
-
-$username = $password = "";
-$error = " ";
-
-if($_SERVER["REQUEST_METHOD"] == "POST"){
-    // Set password
-    if(empty(trim($_POST["password"]))){
-        $error = "Please enter a password";
-    } elseif(strlen((trim($_POST["password"]))) < 6) {
-        $error = "Password must have at least 6 characters";
-    } else {
-        $password = trim($_POST["password"]);
-    }
-
-    // Set username
-    if(empty(trim($_POST["username"]))){
-        $error = "Please enter an username";
-    } else {
-        $username = $_POST["username"];
-    }
-
-    if(isset($_POST["login_button"])){
-        echo "Login";
-    } else {
-        echo "Register";
-    }
-
+$info = "";
+if(isset($data['info'])){
+    $info = $data['info'];
 }
 
 ?>
@@ -35,6 +10,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 <html lang="en">
     <head>
         <title>Login</title>
+        <base href="/archivr-mvc/public/" />
         <link rel="stylesheet" type="text/css" href="css/index.css">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta charset="UTF-8">
@@ -65,7 +41,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                     </div>
                 </form>
                 <div class="error">
-                    <span class="error"><?php echo $error; ?></span>
+                    <span class="error"><?php echo $info?></span>
                 </div>
             </div>
         </div>
