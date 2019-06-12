@@ -102,3 +102,11 @@ body {
 .button-control:not(:last-child) {
     margin-right: .75rem;
 }
+
+.error{
+    color: #bdc3c7;
+    text-align: center;
+    display: flex;
+    justify-content: flex-end;
+    padding-top: .1em;
+}
