@@ -8,6 +8,7 @@ CREATE TABLE users (
 CREATE TABLE folder_path (
     id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
     user_id INT,
+    user_path VARCHAR(255) NOT NULL,
     INDEX par_ind (user_id),
     FOREIGN KEY (user_id)
         REFERENCES users(id)
@@ -18,6 +19,7 @@ CREATE TABLE log (
     id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
     user_id INT,
     username VARCHAR(50),
+    archive_name VARCHAR(255) NOT NULL,
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
     INDEX log_ind (user_id),
     FOREIGN KEY (user_id)
