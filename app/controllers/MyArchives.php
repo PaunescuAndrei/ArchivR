@@ -1,6 +1,9 @@
 <?php
 
 class MyArchives extends Controller{
+
+    protected $msg = "";
+
     public function index(){
 
         $archiveOps = $user = $this->model('ArchiveOps');
@@ -16,10 +19,12 @@ class MyArchives extends Controller{
 
         if(isset($_POST['delete_button']) && !empty($files)){ // Delete archives
             foreach($files as $file){
-                if(unlink($_SESSION['user_path']."/".$file)){
+                if(unlink($_SESSION['user_path']."/".$file) === TRUE){
                     if($archiveOps->logDelete($file) === FALSE){
-                        echo "Something went wrong. Try again later";
+                        $this->msg = "Something went wrong. Try again later";
                     }
+                } else{
+                    $this->msg = "Error deleting files";
                 }
             }
         } else { // Download archives
@@ -27,7 +32,7 @@ class MyArchives extends Controller{
                 $zip = new ZipArchive();
                 $zip_name = date("Y_m_d-H_i_s").".zip";
                 if($zip->open($zip_name, ZIPARCHIVE::CREATE)!==TRUE){
-                    echo "Error Downloading";
+                    $this->msg = "Error Downloading";
                 } else {
                     foreach($files as $file){
                         $download_file = $_SESSION['user_path']."/".$file;
@@ -43,12 +48,12 @@ class MyArchives extends Controller{
                         readfile($zip_name);
                         unlink($zip_name);
                     } else {
-                        echo "Error downloading";
+                        $this->msg = "Error downloading";
                     }
                 }
             }
         }
-        $this->view('home/MyArchives');
+        $this->view('home/MyArchives', ['msg' => $this->msg]);
     }
 }
 ?>
