@@ -30,6 +30,11 @@
                     </ul>
                     <p class="menu-label">Configuration</p>
                     <ul class="menu-list">
+                        <?php
+                            if($_SESSION['admin'] === "Y"){
+                                echo "<li><a href=\"/ArchivR/public/AdminPage/index\">Admin Config</a></li>";
+                            }
+                        ?>
                         <li><a href="myaccount.html">Change your password</a></li>
                         <li><a href="/ArchivR/public/Auth/logout">Logout</a></li>
                     </ul>
