@@ -7,6 +7,18 @@ class AdminPage extends Controller{
     public function index(){
         $logs = array(); //user_id, username, archive_name, action_type, created_at
         $admin = $this->model("Admin");
+
+        if(isset($_POST['maxFileSize'])){
+            $admin->setMaxFileSize($_POST['maxFileSize']);
+        }
+        if(isset($_POST['maxArchiveSize'])){
+            $admin->setMaxArchiveSize($_POST['maxArchiveSize']);
+        }
+        if(isset($_POST['maxFiles'])){
+            $admin->setMaxFiles($_POST['maxFiles']);
+        }
+
+
         $logs = $admin->getLogs();
         if(count($logs)){
             if(isset($_POST['download_xml'])){
@@ -17,7 +29,7 @@ class AdminPage extends Controller{
                 $this->downloadHTML($logs, 'logs.html');
             }
         }
-        $this->view('home/AdminPage', ['msg' => $this->msg]);
+        $this->view('home/AdminPage', ['msg' => $this->msg,'MaxFileSize' => $admin->getMaxFileSize(),'MaxArchiveSize' =>$admin->getMaxArchiveSize(),'MaxFiles' => $admin->getMaxFiles()]);
 
     }
 

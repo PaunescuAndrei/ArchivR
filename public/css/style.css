@@ -242,3 +242,7 @@ li a:hover:not(.active) {
     display: flex;
     justify-content: space-between;
 }
+
+.settings {
+    margin-bottom: .75rem;
+}

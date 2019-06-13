@@ -67,7 +67,7 @@
                                 </div>
                             </div>
                         </div>
-                        <p class="text-muted"><?php echo $data['msg']; ?></p>
+                        <p id="msg" class="text-muted"><?php echo $data['msg']; ?></p>
                     </form>
                 </article>
             </div>

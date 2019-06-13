@@ -5,6 +5,7 @@ var filesize = new Array();
 
 updateList = function () {
     $('#zipList').empty();
+    $('#msg').empty();
     var input = document.getElementById('fileUploader');
     var output = document.getElementById('zipList');
 

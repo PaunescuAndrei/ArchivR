@@ -10,11 +10,34 @@ class Upload extends Controller{
         }
 
         $archiveOps = $this->model('ArchiveOps');
+        $admin = $this->model('Admin');
 
         if($_SERVER["REQUEST_METHOD"] == "POST"){
                 if(empty($_FILES['files']['name'][0]))
                     $this->msg = "You need to select at least 1 file.";
                 else{
+
+                    $fileCount = count($_FILES['files']['name']);
+                    if ($fileCount > $admin->getMaxFiles()){
+                        $this->msg = "Max number of files is ".$admin->getMaxFiles();
+                        goto end;
+                    }
+
+                    $size = 0;
+                    for($i=0;$i<$fileCount;$i++) {
+                        $file_size=$_FILES['files']['size'][$i]/1048576;
+                        if ($file_size > $admin->getMaxFileSize()){
+                            $this->msg = "Max file size is ".$admin->getMaxFileSize(). " MB";
+                            goto end;
+                        }
+                        $size += $file_size;
+                    }
+
+                    if($size > $admin->getMaxArchiveSize()){
+                        $this->msg = "Max Archive size is ".$admin->getMaxArchiveSize()." MB";
+                        goto end;
+                    }
+
                     $name = $_SESSION['username'] . date("Y_m_d-H_i_s");
                     switch ($_POST['type']) {
                         case "ZIP":
@@ -41,6 +64,7 @@ class Upload extends Controller{
                 }
         }
 
+        end:
         $this->view('home/Upload',['msg' => $this->msg]);
     }
 
