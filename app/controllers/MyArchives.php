@@ -8,6 +8,7 @@ class MyArchives extends Controller{
 
         $archiveOps = $user = $this->model('ArchiveOps');
         $files = [];
+        $file_name = "";
         if(!isset($_SESSION["logged_in"])){
             header('location: /ArchivR/public/Auth/index');
             die();
@@ -27,7 +28,7 @@ class MyArchives extends Controller{
                     $this->msg = "Error deleting files";
                 }
             }
-        } else { // Download archives
+        } elseif(isset($_POST['download_button'])) { // Download archives
             if(!empty($files)){
                 $zip = new ZipArchive();
                 $zip_name = date("Y_m_d-H_i_s").".zip";
@@ -50,6 +51,16 @@ class MyArchives extends Controller{
                     } else {
                         $this->msg = "Error downloading";
                     }
+                }
+            }
+        } else {
+            if(isset($_POST['file_name'])){
+                $file_name = $_POST['file_name'];
+                if(unlink($_SESSION['user_path']."/".$file_name) === TRUE){
+                    if($archiveOps->logDelete($file_name) === FALSE){
+                        $this->msg = "Something went wrong. Try again later";
+                    }
+                    $this->msg = "Deleted the file";
                 }
             }
         }

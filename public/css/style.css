@@ -211,11 +211,15 @@ li a:hover:not(.active) {
 }
 
 .bin {
+    border: none;
+    border-color: transparent;
     float: left;
     background: url(../img/x.png);
     width: 16px;
     height: 16px;
     cursor: pointer;
+    font-size: 0;
+    line-height: 0;
 }
 
 .progress {

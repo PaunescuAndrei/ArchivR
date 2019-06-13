@@ -61,7 +61,9 @@ if(isset($_SESSION['user_path'])){
                             foreach($files as $file){
                                 $size = filesize($user_path."/".$file)/1024;
                                 $size = number_format((float)$size, 2, '.', '');
-                                echo "<div class=\"bin\" onclick=\"\"></div>";
+                                echo "<form action=\"\" method=\"POST\">";
+                                echo "<div><input class=\"bin\" type=\"submit\" name=\"file_name\" id=".$file." value=".$file."></div>";
+                                echo "</form>";
                                 echo "<div class=\"progress\" style=\"margin-left:24px\">";
                                 echo "<div><input type=\"checkbox\" value=".$file." name=\"checkbox[]\" />".$file."<span class=\"fileSize\"> ".$size." KB</span></div>";
                                 echo "</div>";
