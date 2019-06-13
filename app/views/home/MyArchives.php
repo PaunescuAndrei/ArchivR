@@ -40,13 +40,13 @@ if(isset($_SESSION['user_path'])){
                 <nav>
                     <p class="menu-label">General</p>
                     <ul class="menu-list">
-                        <li><a href="upload.html">Upload</a></li>
-                        <li><a href="myarchives.html" class="active">My archives</a></li>
+                        <li><a href="/ArchivR/public/Upload/index">Upload</a></li>
+                        <li><a href="/ArchivR/public/MyArchives/index" class="active">My archives</a></li>
                     </ul>
                     <p class="menu-label">Configuration</p>
                     <ul class="menu-list">
                         <li><a href="myaccount.html">Change your password</a></li>
-                        <li><a href="../index.html">Logout</a></li>
+                        <li><a href="/ArchivR/public/Auth/logout">Logout</a></li>
                     </ul>
                 </nav>
                 <article>
