@@ -9,6 +9,8 @@ class Upload extends Controller{
             die();
         }
 
+        $archiveOps = $user = $this->model('ArchiveOps');
+
         if($_SERVER["REQUEST_METHOD"] == "POST"){
                 if(empty($_FILES['files']['name'][0]))
                     $this->msg = "You need to select at least 1 file.";
@@ -17,18 +19,23 @@ class Upload extends Controller{
                     switch ($_POST['type']) {
                         case "ZIP":
                             $this->createZip($name);
+                            $archiveOps->logUpload($name.".zip");
                             break;
                         case "TAR":
                             $this->createTar($name);
+                            $archiveOps->logUpload($name.".tar");
                             break;
                         case "GZIP":
                             $this->createGZ($name);
+                            $archiveOps->logUpload($name.".tar.gz");
                             break;
                         case "BZIP2":
                             $this->createBZ2($name);
+                            $archiveOps->logUpload($name.".tar.bz2");
                             break;
                         default:
                             $this->createZip($name);
+                            $archiveOps->logUpload($name.".zip");
                             break;
                     }
                 }
