@@ -22,6 +22,11 @@
                 <nav>
                     <p class="menu-label">General</p>
                     <ul class="menu-list">
+                        <?php
+                            if($_SESSION['admin'] === "Y"){
+                                echo "<li><a href=\"/ArchivR/public/AdminPage/index\">Admin Config</a></li>";
+                            }
+                        ?>
                         <li><a href="/ArchivR/public/Upload/index">Upload</a></li>
                         <li><a href="/ArchivR/public/MyArchives/index" class="active">My archives</a></li>
                     </ul>
