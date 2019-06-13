@@ -66,7 +66,6 @@ class AdminPage extends Controller{
 
     private function downloadCSV($logs_array, $file_name){
         $csv_file = fopen($file_name, 'w');
-        //user_id, username, archive_name, action_type, created_at
         fputcsv($csv_file, array('user_id', 'username', 'archive_name', 'action_type', 'created_at'));
         foreach ($logs_array as $log){
             fputcsv($csv_file, $log);
@@ -86,7 +85,56 @@ class AdminPage extends Controller{
         } 
     }
     private function downloadHTML($logs_array, $file_name){
-        
+        $html_file = fopen($file_name, 'w');
+        //user_id, username, archive_name, action_type, created_at
+        $text = "
+        <!DOCTYPE html>
+        <html>
+        <head>
+            <style>
+            table, th, td {
+                border: 1px solid black;
+            }
+            </style>
+        </head>
+        <body>
+        <table style=\"width:100%\">
+            <tr>
+                <th>user_id</th>
+                <th>username</th> 
+                <th>archive_name</th>
+                <th>action_type</th>
+                <th>created_at</th>
+            </tr>";
+        fwrite($html_file, $text);
+        for($i=0; $i<count($logs_array); $i++){
+            $text = "
+            <tr>
+                <td>".$logs_array[$i]['user_id']."</td>
+                <td>".$logs_array[$i]['username']."</td>
+                <td>".$logs_array[$i]['archive_name']."</td>
+                <td>".$logs_array[$i]['action_type']."</td>
+                <td>".$logs_array[$i]['created_at']."</td>
+            </tr>";
+            fwrite($html_file, $text);
+        }
+        $text = "
+        </table>
+        </body>
+        </html>";
+        fclose($html_file);
+        if(file_exists($file_name)){
+            header('Content-Description: File Transfer');
+            header('Content-Type: application/csv');
+            header('Content-Disposition: attachment; filename='.basename($file_name));
+            header('Content-Transfer-Encoding: binary');
+            header('Content-Length: '.filesize($file_name));
+            readfile($file_name);
+            unlink($file_name);
+            exit();
+        } else {
+            $this->msg = "Error downloading";
+        } 
     }
 }
 
