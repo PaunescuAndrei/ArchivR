@@ -47,6 +47,11 @@
                                 </div>
                         </div>
                     </form>
+                    <p class="text-muted">
+                    <?php 
+                        echo $data['msg']; 
+                    ?>
+                    </p>
                 </article>
             </div>
         </section>
