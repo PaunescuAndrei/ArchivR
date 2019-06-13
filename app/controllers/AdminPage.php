@@ -136,7 +136,7 @@ class AdminPage extends Controller{
         fclose($html_file);
         if(file_exists($file_name)){
             header('Content-Description: File Transfer');
-            header('Content-Type: application/csv');
+            header('Content-Type: application/html');
             header('Content-Disposition: attachment; filename='.basename($file_name));
             header('Content-Transfer-Encoding: binary');
             header('Content-Length: '.filesize($file_name));
