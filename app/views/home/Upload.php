@@ -35,7 +35,7 @@
                                 echo "<li><a href=\"/ArchivR/public/AdminPage/index\">Admin Config</a></li>";
                             }
                         ?>
-                        <li><a href="myaccount.html">Change your password</a></li>
+                        <li><a href="/ArchivR/public/MyAccount/index">Change your password</a></li>
                         <li><a href="/ArchivR/public/Auth/logout">Logout</a></li>
                     </ul>
                 </nav>
