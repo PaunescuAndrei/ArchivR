@@ -38,7 +38,24 @@ class Upload extends Controller{
                         goto end;
                     }
 
-                    $name = $_SESSION['username'] . date("Y_m_d-H_i_s");
+
+                    $name_type = $admin->getName();
+
+                    switch ($name_type) {
+                        case "username_YY-MM-DD_H-M-S":
+                            $name = $_SESSION['username'].date("_Y-m-d_H-i-s");
+                            break;
+                        case "YY-MM-DD_username_H-M-S":
+                            $name = date("Y-m-d_").$_SESSION['username'].date("_H-i-s");
+                            break;
+                        case "YY-MM-DD_H-M-S_username":
+                            $name = date("Y-m-d_H-i-s_").$_SESSION['username'];
+                            break;
+                        default:
+                            $name = $_SESSION['username'] . date("Y_m_d-H_i_s");
+                            break;
+                    }
+
                     switch ($_POST['type']) {
                         case "ZIP":
                             $this->createZip($name);

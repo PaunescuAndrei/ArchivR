@@ -55,6 +55,15 @@ class Admin{
         $json_data = json_encode($this->data);
         file_put_contents('../app/core/serverSettings.json', $json_data);
     }
+
+    public function getName(){
+        return $this->data['name'];
+    }
+    public function setName($name_type){
+        $this->data['name'] = $name_type;
+        $json_data = json_encode($this->data);
+        file_put_contents('../app/core/serverSettings.json', $json_data);
+    }
 }
 
 ?>

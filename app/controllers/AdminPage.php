@@ -17,6 +17,9 @@ class AdminPage extends Controller{
         if(isset($_POST['maxFiles']) && !empty($_POST['maxFiles'])){
             $admin->setMaxFiles($_POST['maxFiles']);
         }
+        if(isset($_POST['name_type']) && !empty($_POST['name_type'])){
+            $admin->setName($_POST['name_type']);
+        }
 
 
         $logs = $admin->getLogs();
@@ -29,7 +32,7 @@ class AdminPage extends Controller{
                 $this->downloadHTML($logs, 'logs.html');
             }
         }
-        $this->view('home/AdminPage', ['msg' => $this->msg,'MaxFileSize' => $admin->getMaxFileSize(),'MaxArchiveSize' =>$admin->getMaxArchiveSize(),'MaxFiles' => $admin->getMaxFiles()]);
+        $this->view('home/AdminPage', ['msg' => $this->msg,'MaxFileSize' => $admin->getMaxFileSize(),'MaxArchiveSize' =>$admin->getMaxArchiveSize(),'MaxFiles' => $admin->getMaxFiles(),'name' => $admin->getName()]);
 
     }
 

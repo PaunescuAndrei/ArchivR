@@ -58,6 +58,16 @@
                                   <input name="maxFiles" class="input" type="number" min="0">
                                 </div>
                             </div>
+                            <div class="settings">
+                                <label class="label">Naming Format (<?php echo "Current: ".$data['name']; ?>)</label>
+                                <div class="control">
+                                <select name="name_type">
+                                    <option value="username_YY-MM-DD_H-M-S">username_YY-MM-DD_H-M-S</option>
+                                    <option value="YY-MM-DD_username_H-M-S">YY-MM-DD_username_H-M-S</option>
+                                    <option value="YY-MM-DD_H-M-S_username">YY-MM-DD_H-M-S_username</option>
+                                </select>
+                                </div>
+                            </div>
                             <div style="text-align: center">
                                 <input type="submit" class="btn btn-blue" value="Submit">		
                             </div>
