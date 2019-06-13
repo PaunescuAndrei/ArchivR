@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <meta name="keywords" content="project, infoiasi, web, ArchivR" /> 
+    <title>ArchivR</title>
+    <link rel="stylesheet" href="css/scholarly.min.css">
+    <script src="js/scholarly.min.js"></script>
+  </head>
+  <body prefix="schema: http://schema.org">
+    <header>
+      <h1>Archiv R</h1>
+      <h2>Documentatie</h2>
+    </header>
+    <div>
+      <dl>
+        <dt>Autori</dt>
+        <dd>
+          Agarafine Beniamin Andrei
+          &amp;
+          Paunescu Andrei-Alexandru
+        </dd>
+    </div>
+    <section id="introduction" role="doc-introduction">
+      <h2>Introducere</h2>
+      <p>
+        Aplicatie online de arhivare a fisierelor, dar si de gestionare a arhivelor creeate.
+      </p>
+      <p>
+        Aplicatia are urmatoarele caracteristici:
+      </p>
+      <ul>
+        <li>Utilizatorii pot arhiva diferite fisiere.</li>
+        <li>Utilizatorii pot alege tipul arhivei creeate.</li>
+        <li>Utilizatorii isi pot gestiona arhivele creeate.</li>
+      </ul>
+    </section>
+    <section id="tehnologii">
+      <h2>Tehnologii</h2>
+      <p>
+        Tehnologiile folosite in creearea acestei aplicatii sunt afisate mai jos.
+      </p>
+      <section id="article">
+        <h3>HTML</h3>
+        <p>
+          HyperText Markup Language (HTML) este un limbaj de marcare utilizat pentru crearea paginilor web ce pot fi afisate intr-un browser (sau navigator). 
+          Scopul HTML este mai degraba prezentarea informatiilor – paragrafe, fonturi, tabele s.a.m.d. – decat descrierea semanticii documentului.
+        </p>
+      </section>
+      <section id="article">
+        <h3>CSS</h3>
+        <p>
+            CSS (Cascading Style Sheets) este un standard pentru formatarea elementelor unui document HTML. 
+            Stilurile se pot atașa elementelor HTML prin intermediul unor fisiere externe sau direct in cadrul documentului html.
+        </p>
+        </section>
+      <section id="article">
+        <h3>JavaScript</h3>
+          <p>
+              JavaScript (JS) este un limbaj de programare orientat obiect bazat pe conceptul prototipurilor. 
+              Este folosit mai ales pentru introducerea unor funcționalitati în paginile web, 
+              codul JavaScript din aceste pagini fiind rulat de catre browser.
+          </p>
+      </section>
+      <section id="article">
+          <h3>PHP</h3>
+            <p>
+                PHP este un limbaj de programare. Numele PHP provine din limba engleza si este un acronim recursiv: Php: Hypertext Preprocessor.
+                Folosit initial pentru a produce pagini web dinamice, este folosit pe scara larga in dezvoltarea paginilor si aplicatiilor web. 
+                Se foloseste în principal inglobat in codul HTML.
+            </p>
+      </section>
+      <section id="article">
+          <h3>MySQL</h3>
+            <p>
+                MySQL este un sistem de gestiune a bazelor de date relationale.
+            </p>
+      </section>
+      <section id="article">
+          <h3>GitHub</h3>
+            <p>
+                GitHub este un serviciu de gazduire web pentru proiecte de dezvoltare a software-ului care utilizeaza sistemul de control al versiunilor Git. 
+            </p>
+      </section>
+    </section>
+      <section id="structura">
+        <h3>Arhitectura aplicatiei</h3>
+        <section id="article">
+          <h3>Structura generala a aplicatiei</h3>
+            <figure typeof = "schema:Image"></figure>
+              <img src="imgs/structura_aplicatie.png" alt="structura_aplicatie" style="max-height:100%; max-width:100%;">
+              <figcaption style="text-align: center; font-size: 14px;">Structura aplicatiei</figcaption>
+            </figure>
+        </section>
+
+        <section id="article">
+            <h3>Structura bazei de date</h3>
+              <p>
+                Arhivele utilizatorilor vor fi stocate pe server, intr-un director special facut cu numele acestuia.
+                In baza de date este stocat pentru fiecare utilizator path-ul folderului acestuia.
+              </p>
+              <figure typeof = "schema:Image"></figure>
+                <img src="imgs/schema_baze_date.png" alt="schema_baze_date" style="max-height:100%; max-width:100%;">
+                <figcaption style="text-align: center; font-size: 14px;">Schema bazei de date</figcaption>
+              </figure>
+        </section>
+
+        <section id="article">
+            <h3>MVC</h3>
+              <p>
+                Aplicatia se va baza pe design pattern-ul MVC (Model View Controller). 
+              </p>
+              <figure typeof = "schema:Image"></figure>
+                <img src="imgs/schema_mvc.png" alt="schema_mvc" style="max-height:100%; max-width:100%;">
+                <figcaption style="text-align: center; font-size: 14px;">Schema MVC</figcaption>
+              </figure>
+              <p>
+                Fiecare pagina solicitata va avea trei componente:
+                <ol>
+                    <li>Componenta View:</li>
+                      <dd>ー Aceasta componenta are ca scop doar afisarea paginii catre utilizatori.</dd>
+                    <li>Componenta Model:</li>
+                      <dd>ー Aceasta componenta are ca scop gestionarea interna a aplicatiei.</dd>
+                      <dd>ー Prin aceasta componenta se vor face modificari asupra aplicatiei. Spre exemplu modificari asupra bazei de date sau diferite calcule.</dd>
+                    <li>Componenta Controller:</li>
+                      <dd>ー Prin aceasta componenta se face legatura dintre componentele Model si View.</dd>
+                      <dd>ー Aceasta componenta, prin datele primite de la Model, decide ce date sa trimita la View.</dd>
+                </ol>
+              </p>
+        </section>
+      </section>
+
+      <section id="mod_utilizare">
+        <h3>Mod de utilizare</h3>
+        <p>
+          Mai jos este descris un scenariu normal de utilizare a aplicatie.
+        </p>
+
+        <section id="article">
+            <h3>Login/Register</h3>
+            <p>
+              Utilizatorii, odata ce acceseaza aplicatia isi pot creea un cont nou, sau, daca au deja un cont creeat se pot loga.
+            </p>
+            <figure typeof = "schema:Image"></figure>
+              <img src="imgs/login_page.png" alt="login_page" style="max-height:100%; max-width:100%;">
+              <figcaption style="text-align: center; font-size: 14px;">Pagina de autentificare</figcaption>
+            </figure>
+        </section>
+
+        <section id="article">
+            <h3>MyArchives</h3>
+            <p>
+              Utilizatorii, odata ce au fost logati cu success vor fi trimisi pe pagina MyArchives unde isi vor putea gestiona arhivele creeate.
+            </p>
+            <figure typeof = "schema:Image"></figure>
+              <img src="imgs/my_archives.png" alt="my_archives" style="max-height:100%; max-width:100%;">
+              <figcaption style="text-align: center; font-size: 14px;">Pagina de gestionare arhive</figcaption>
+            </figure>
+        </section>
+
+        <section id="article">
+            <h3>Upload</h3>
+            <p>
+              In aceasta pagina, utilizatorii pot sa creeze arhive noi de diferite tipuri.
+            </p>
+            <figure typeof = "schema:Image"></figure>
+              <img src="imgs/upload_page.png" alt="upload_page" style="max-height:100%; max-width:100%;">
+              <figcaption style="text-align: center; font-size: 14px;">Pagina de upload al fisierelor</figcaption>
+            </figure>
+        </section>
+
+        <section id="article">
+            <h3>Change your password</h3>
+            <p>
+              In aceasta pagina, utilizatorii isi pot schimba parola contului.
+            </p>
+            <figure typeof = "schema:Image"></figure>
+              <img src="imgs/my_account.png" alt="my_account" style="max-height:100%; max-width:100%;">
+              <figcaption style="text-align: center; font-size: 14px;">Pagina de schimbare a parolei</figcaption>
+            </figure>
+        </section>
+
+        <section id="article">
+            <h3>Admin config</h3>
+            <p>
+              Utilizatorii autentificati cu un utilizator cu drepturi de administrator au access,
+              pe langa cele mentionate mai sus, la o pagina noua in care este posibila stabilirea
+              a diversi parametrii, dar si descarcarea de log-uri, in diferite formate(HTML, XML, CSV).
+            </p>
+            <figure typeof = "schema:Image"></figure>
+              <img src="imgs/admin_page.png" alt="admin_page" style="max-height:100%; max-width:100%;">
+              <figcaption style="text-align: center; font-size: 14px;">Pagina de configurare</figcaption>
+            </figure>
+        </section>
+      </section>
+
+      <section id="use_case">
+          <h3>Diagrama Use Case</h3>
+          <figure typeof = "schema:Image"></figure>
+            <img src="imgs/diagrama_usecase.png" alt="diagrama_usecase" style="max-height:100%; max-width:100%;">
+            <figcaption style="text-align: center; font-size: 14px;">Diagrama Use Case</figcaption>
+          </figure>
+        </section>
+        
+
+      <section id="dezvoltare">
+        <h3>Dezvoltare</h3>
+        <p>
+          Aplicatia a fost dezvoltata in mai multe etape.
+        </p>
+        <ol>
+          <li>Dezvoltare front-end:</li>
+            <dd>ー Creeare de pagini statici HTML.</dd>
+            <dd>ー Creeare de fisiere css folosite de HTML.</dd>
+          <li>Dezvoltarea bazei de date:</li>
+            <dd>ー Creearea de tabele in baza de date.</dd>
+          <li>Implementarea functionalitatii aplicatiei:</li>
+            <dd>ー Implementarea functionalitatilor butoanelor, implementarea unui sistem de login, etc.</dd>
+          <li>Integrarea componentelor:</li>
+            <dd>ー Integrarea tuturor functionalitatilor aduse</dd>
+          <li>Testarea aplicatiei:</li>
+            <dd>ー Testarea aplicatiei integrata total.</dd>
+        </ol>
+      </section>
+    </section>
+  </body>
+</html>
