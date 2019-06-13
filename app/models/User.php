@@ -125,6 +125,36 @@ class User{
         mysqli_close($db_con);
         return [];
     }
+
+    public function changePassword($user_id,$password){
+        if(preg_match('/[^A-Za-z0-9]/', $password)){
+            return "Password only need alphanumeric characters";
+        } elseif(strlen($password) < 6){
+            return "Pasword must have at least 6 characters";
+        }
+
+        $db_con = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_NAME);
+ 
+        if($db_con === false){
+            die("ERROR: Could not connect. " . mysqli_connect_error());
+        }
+
+        $sql = "UPDATE users SET password= ? WHERE id= ?";
+        if($stmt = mysqli_prepare($db_con, $sql)){
+            mysqli_stmt_bind_param($stmt, "ss", $param_password,$param_user_id);
+            $param_password = password_hash($password, PASSWORD_DEFAULT);
+            $param_user_id = $user_id;
+            if(mysqli_stmt_execute($stmt)){
+                mysqli_stmt_close($stmt);
+                mysqli_close($db_con);
+                return "Your password has been changed successfully!";
+            }else{
+                mysqli_stmt_close($stmt);
+                mysqli_close($db_con);
+                return "Something went wrong. Please try again later.";
+            }
+        }
+    }
 }
 
 ?>
