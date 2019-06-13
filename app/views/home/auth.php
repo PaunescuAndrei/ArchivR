@@ -10,7 +10,7 @@ if(isset($data['info'])){
 <html lang="en">
     <head>
         <title>Login</title>
-        <base href="/ArchivR/public/" />
+        <base href="/archivr-mvc/public/" />
         <link rel="stylesheet" type="text/css" href="css/index.css">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta charset="UTF-8">
