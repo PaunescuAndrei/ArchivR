@@ -19,7 +19,7 @@ if(isset($_SESSION['user_path'])){
 <html lang="en">
     <head>
         <title>My archives</title>
-        <base href="/archivr-mvc/public/" />
+        <base href="/ArchivR/public/" />
         <link rel='stylesheet' type='text/css' href='css/style.css'/>
 
         <meta name="viewport" content="width=device-width, initial-scale=1.0">

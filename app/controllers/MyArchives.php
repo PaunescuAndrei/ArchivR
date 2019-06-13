@@ -6,7 +6,7 @@ class MyArchives extends Controller{
         $archiveOps = $user = $this->model('ArchiveOps');
 
         if(!isset($_SESSION["logged_in"])){
-            header('location: /archivr-mvc/public/Auth/index');
+            header('location: /ArchivR/public/Auth/index');
             die();
         }
 
