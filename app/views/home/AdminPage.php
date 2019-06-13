@@ -37,14 +37,16 @@
                     </ul>
                 </nav>
                 <article>
+                    <form id="adminForm" action="" method="post">
                         <div id="step2" class="fieldset" style="margin-top:30px;">
                             <h3>Admin Page</h3>
                                 <div style="text-align: right">
-                                    <button type="button" class="btn btn-blue" onclick="">Download XML</button>
-                                    <button type="button" class="btn btn-blue" onclick="">Download CSV</button>			
-                                    <button type="button" class="btn btn-blue" onclick="">Download HTML</button>			
+                                    <input type="submit" class="btn btn-blue" name="download_xml" value="Download XML">Download XML
+                                    <input type="submit" class="btn btn-blue" name="download_csv" value="Download CSV">Download CSV		
+                                    <input type="submit" class="btn btn-blue" name="download_html" value="Download HTML">Download HTML			
                                 </div>
                         </div>
+                    </form>
                 </article>
             </div>
         </section>
