@@ -8,13 +8,13 @@ class AdminPage extends Controller{
         $logs = array(); //user_id, username, archive_name, action_type, created_at
         $admin = $this->model("Admin");
 
-        if(isset($_POST['maxFileSize'])){
+        if(isset($_POST['maxFileSize']) && !empty($_POST['maxFileSize'])){
             $admin->setMaxFileSize($_POST['maxFileSize']);
         }
-        if(isset($_POST['maxArchiveSize'])){
+        if(isset($_POST['maxArchiveSize']) && !empty($_POST['maxArchiveSize'])){
             $admin->setMaxArchiveSize($_POST['maxArchiveSize']);
         }
-        if(isset($_POST['maxFiles'])){
+        if(isset($_POST['maxFiles']) && !empty($_POST['maxFiles'])){
             $admin->setMaxFiles($_POST['maxFiles']);
         }
 
