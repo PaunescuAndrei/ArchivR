@@ -5,7 +5,7 @@ class AdminPage extends Controller{
     private $msg = "";
 
     public function index(){
-        $logs = array();
+        $logs = array(); //user_id, username, archive_name, action_type, created_at
         $admin = $this->model("Admin");
         $logs = $admin->getLogs();
         if(count($logs)){
@@ -86,7 +86,6 @@ class AdminPage extends Controller{
     }
     private function downloadHTML($logs_array, $file_name){
         $html_file = fopen($file_name, 'w');
-        //user_id, username, archive_name, action_type, created_at
         $text = "
         <!DOCTYPE html>
         <html>
