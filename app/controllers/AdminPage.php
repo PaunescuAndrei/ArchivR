@@ -26,7 +26,6 @@ class AdminPage extends Controller{
         $dom = new DOMDocument('1.0', 'utf-8'); 
         $root = $dom->createElement('Archives'); 
         for($i=0; $i<count($logs_array); $i++){
-            //user_id, username, archive_name, action_type, created_at
             $user_id = $logs_array[$i]['user_id'];  
             $username = $logs_array[$i]['username'];
             $archive_name = htmlspecialchars($logs_array[$i]['archive_name']);
@@ -59,13 +58,32 @@ class AdminPage extends Controller{
             header('Content-Length: '.filesize($xml_file));
             readfile($xml_file);
             unlink($xml_file);
+            exit();
         } else {
             $this->msg = "Error downloading";
         } 
     }
 
     private function downloadCSV($logs_array, $file_name){
-
+        $csv_file = fopen($file_name, 'w');
+        //user_id, username, archive_name, action_type, created_at
+        fputcsv($csv_file, array('user_id', 'username', 'archive_name', 'action_type', 'created_at'));
+        foreach ($logs_array as $log){
+            fputcsv($csv_file, $log);
+        }
+        fclose($csv_file);
+        if(file_exists($file_name)){
+            header('Content-Description: File Transfer');
+            header('Content-Type: application/csv');
+            header('Content-Disposition: attachment; filename='.basename($file_name));
+            header('Content-Transfer-Encoding: binary');
+            header('Content-Length: '.filesize($file_name));
+            readfile($file_name);
+            unlink($file_name);
+            exit();
+        } else {
+            $this->msg = "Error downloading";
+        } 
     }
     private function downloadHTML($logs_array, $file_name){
         
