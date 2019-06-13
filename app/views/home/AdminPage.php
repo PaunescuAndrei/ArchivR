@@ -23,13 +23,13 @@
                     <p class="menu-label">General</p>
                     <ul class="menu-list">
                         <li><a href="/ArchivR/public/Upload/index">Upload</a></li>
-                        <li><a href="/ArchivR/public/MyArchives/index" class="active">My archives</a></li>
+                        <li><a href="/ArchivR/public/MyArchives/index">My archives</a></li>
                     </ul>
                     <p class="menu-label">Configuration</p>
                     <ul class="menu-list">
                         <?php
                             if($_SESSION['admin'] === "Y"){
-                                echo "<li><a href=\"/ArchivR/public/AdminPage/index\">Admin Config</a></li>";
+                                echo "<li><a class=\"active\" href=\"/ArchivR/public/AdminPage/index\">Admin Config</a></li>";
                             }
                         ?>
                         <li><a href="/ArchivR/public/MyAccount/index">Change your password</a></li>
@@ -38,20 +38,11 @@
                 </nav>
                 <article>
                         <div id="step2" class="fieldset" style="margin-top:30px;">
-                            <h3>Your files</h3>
-                            <div id="zipList">
-                                <div class="bin" onclick=""></div>
-                                <div class="progress" style="margin-left:24px">
-                                    <div><input type="checkbox">file1.tar<span class="fileSize">49.8KB</span></div>
-                            </div>
-                            <div class="bin" onclick=""></div>
-                                <div class="progress" style="margin-left:24px">
-                                    <div><input type="checkbox">file2.zip<span class="fileSize">105.4KB</span></div>
-                                </div>
-                            </div>
+                            <h3>Admin Page</h3>
                                 <div style="text-align: right">
-                                    <button type="button" class="btn btn-blue" onclick="" disabled>Download</button>			
-                                    <button type="button" class="btn btn-red" onclick="">Delete</button>
+                                    <button type="button" class="btn btn-blue" onclick="">Download XML</button>
+                                    <button type="button" class="btn btn-blue" onclick="">Download CSV</button>			
+                                    <button type="button" class="btn btn-blue" onclick="">Download HTML</button>			
                                 </div>
                         </div>
                 </article>
