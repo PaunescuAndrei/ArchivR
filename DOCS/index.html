@@ -18,12 +18,13 @@
         <dt>Autori</dt>
         <dd>
           Agarafine Beniamin Andrei
-          &amp;
+        </dd>
+        <dd>
           Paunescu Andrei-Alexandru
         </dd>
     </div>
     <section id="introduction" role="doc-introduction">
-      <h2>Introducere</h2>
+      <h2>1.Introducere</h2>
       <p>
         Aplicatie online de arhivare a fisierelor, dar si de gestionare a arhivelor creeate.
       </p>
@@ -37,26 +38,26 @@
       </ul>
     </section>
     <section id="tehnologii">
-      <h2>Tehnologii</h2>
+      <h2>2.Tehnologii</h2>
       <p>
         Tehnologiile folosite in creearea acestei aplicatii sunt afisate mai jos.
       </p>
       <section id="article">
-        <h3>HTML</h3>
+        <h3>2.1. HTML</h3>
         <p>
           HyperText Markup Language (HTML) este un limbaj de marcare utilizat pentru crearea paginilor web ce pot fi afisate intr-un browser (sau navigator). 
           Scopul HTML este mai degraba prezentarea informatiilor – paragrafe, fonturi, tabele s.a.m.d. – decat descrierea semanticii documentului.
         </p>
       </section>
       <section id="article">
-        <h3>CSS</h3>
+        <h3>2.2. CSS</h3>
         <p>
             CSS (Cascading Style Sheets) este un standard pentru formatarea elementelor unui document HTML. 
             Stilurile se pot atașa elementelor HTML prin intermediul unor fisiere externe sau direct in cadrul documentului html.
         </p>
         </section>
       <section id="article">
-        <h3>JavaScript</h3>
+        <h3>2.3. JavaScript</h3>
           <p>
               JavaScript (JS) este un limbaj de programare orientat obiect bazat pe conceptul prototipurilor. 
               Este folosit mai ales pentru introducerea unor funcționalitati în paginile web, 
@@ -64,7 +65,7 @@
           </p>
       </section>
       <section id="article">
-          <h3>PHP</h3>
+          <h3>2.4. PHP</h3>
             <p>
                 PHP este un limbaj de programare. Numele PHP provine din limba engleza si este un acronim recursiv: Php: Hypertext Preprocessor.
                 Folosit initial pentru a produce pagini web dinamice, este folosit pe scara larga in dezvoltarea paginilor si aplicatiilor web. 
@@ -72,20 +73,20 @@
             </p>
       </section>
       <section id="article">
-          <h3>MySQL</h3>
+          <h3>2.5. MySQL</h3>
             <p>
                 MySQL este un sistem de gestiune a bazelor de date relationale.
             </p>
       </section>
       <section id="article">
-          <h3>GitHub</h3>
+          <h3>2.6. GitHub</h3>
             <p>
                 GitHub este un serviciu de gazduire web pentru proiecte de dezvoltare a software-ului care utilizeaza sistemul de control al versiunilor Git. 
             </p>
       </section>
     </section>
       <section id="structura">
-        <h3>Arhitectura aplicatiei</h3>
+        <h3>3.Arhitectura aplicatiei</h3>
         <section id="article">
           <h3>Structura generala a aplicatiei</h3>
             <figure typeof = "schema:Image"></figure>
@@ -95,7 +96,7 @@
         </section>
 
         <section id="article">
-            <h3>Structura bazei de date</h3>
+            <h3>3.1. Structura bazei de date</h3>
               <p>
                 Arhivele utilizatorilor vor fi stocate pe server, intr-un director special facut cu numele acestuia.
                 In baza de date este stocat pentru fiecare utilizator path-ul folderului acestuia.
@@ -107,7 +108,7 @@
         </section>
 
         <section id="article">
-            <h3>MVC</h3>
+            <h3>3.2. MVC</h3>
               <p>
                 Aplicatia se va baza pe design pattern-ul MVC (Model View Controller). 
               </p>
@@ -132,13 +133,13 @@
       </section>
 
       <section id="mod_utilizare">
-        <h3>Mod de utilizare</h3>
+        <h3>4.Mod de utilizare</h3>
         <p>
           Mai jos este descris un scenariu normal de utilizare a aplicatie.
         </p>
 
         <section id="article">
-            <h3>Login/Register</h3>
+            <h3>4.1. Login/Register</h3>
             <p>
               Utilizatorii, odata ce acceseaza aplicatia isi pot creea un cont nou, sau, daca au deja un cont creeat se pot loga.
             </p>
@@ -149,7 +150,7 @@
         </section>
 
         <section id="article">
-            <h3>MyArchives</h3>
+            <h3>4.2. MyArchives</h3>
             <p>
               Utilizatorii, odata ce au fost logati cu success vor fi trimisi pe pagina MyArchives unde isi vor putea gestiona arhivele creeate.
             </p>
@@ -160,7 +161,7 @@
         </section>
 
         <section id="article">
-            <h3>Upload</h3>
+            <h3>4.3. Upload</h3>
             <p>
               In aceasta pagina, utilizatorii pot sa creeze arhive noi de diferite tipuri.
             </p>
@@ -171,7 +172,7 @@
         </section>
 
         <section id="article">
-            <h3>Change your password</h3>
+            <h3>4.4. Change your password</h3>
             <p>
               In aceasta pagina, utilizatorii isi pot schimba parola contului.
             </p>
@@ -182,7 +183,7 @@
         </section>
 
         <section id="article">
-            <h3>Admin config</h3>
+            <h3>4.5. Admin config</h3>
             <p>
               Utilizatorii autentificati cu un utilizator cu drepturi de administrator au access,
               pe langa cele mentionate mai sus, la o pagina noua in care este posibila stabilirea
@@ -196,16 +197,16 @@
       </section>
 
       <section id="use_case">
-          <h3>Diagrama Use Case</h3>
-          <figure typeof = "schema:Image"></figure>
-            <img src="imgs/diagrama_usecase.png" alt="diagrama_usecase" style="max-height:100%; max-width:100%;">
-            <figcaption style="text-align: center; font-size: 14px;">Diagrama Use Case</figcaption>
-          </figure>
-        </section>
+        <h3>4.6. Diagrama Use Case</h3>
+        <figure typeof = "schema:Image"></figure>
+          <img src="imgs/diagrama_usecase.png" alt="diagrama_usecase" style="max-height:100%; max-width:100%;">
+          <figcaption style="text-align: center; font-size: 14px;">Diagrama Use Case</figcaption>
+        </figure>
+      </section>
         
 
       <section id="dezvoltare">
-        <h3>Dezvoltare</h3>
+        <h3>5.Dezvoltare</h3>
         <p>
           Aplicatia a fost dezvoltata in mai multe etape.
         </p>
