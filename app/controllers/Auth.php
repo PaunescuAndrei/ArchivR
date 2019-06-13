@@ -57,6 +57,14 @@ class Auth extends Controller{
             }
         }
     }
+
+    public function logout(){
+        session_start();
+        $_SESSION = array();
+        session_destroy();
+        header("location: /ArchivR/public/Auth/index");
+        exit;
+    }
 }
 
 ?>
