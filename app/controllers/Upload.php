@@ -9,7 +9,7 @@ class Upload extends Controller{
             die();
         }
 
-        $archiveOps = $user = $this->model('ArchiveOps');
+        $archiveOps = $this->model('ArchiveOps');
 
         if($_SERVER["REQUEST_METHOD"] == "POST"){
                 if(empty($_FILES['files']['name'][0]))
