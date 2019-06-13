@@ -41,9 +41,9 @@
                         <div id="step2" class="fieldset" style="margin-top:30px;">
                             <h3>Admin Page</h3>
                                 <div style="text-align: right">
-                                    <input type="submit" class="btn btn-blue" name="download_xml" value="Download XML">Download XML
-                                    <input type="submit" class="btn btn-blue" name="download_csv" value="Download CSV">Download CSV		
-                                    <input type="submit" class="btn btn-blue" name="download_html" value="Download HTML">Download HTML			
+                                    <input type="submit" class="btn btn-blue" name="download_xml" value="Download XML">
+                                    <input type="submit" class="btn btn-blue" name="download_csv" value="Download CSV">	
+                                    <input type="submit" class="btn btn-blue" name="download_html" value="Download HTML">			
                                 </div>
                         </div>
                     </form>
